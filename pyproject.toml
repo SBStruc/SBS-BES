@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "sbs-besi"
+version = "0.1.0"
+description = ""
+authors = ["regutierrez <11924623+regutierrez@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.13"
+pandas = "^2.1.1"
+pandas-stubs = "^2.1.1.230928"
+pytest = "^7.4.2"
+openpyxl = "^3.1.2"
+pydantic = "^2.4.2"
+xlwings = "^0.31.1"
+
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.25.2"
+jupyter = "^1.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
