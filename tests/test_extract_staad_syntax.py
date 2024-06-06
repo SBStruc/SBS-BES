@@ -4,7 +4,7 @@ import numpy as np
 import pathlib
 
 # import numpy.testing as npt
-from sbs_besi.extract.extract_from_staad_syntax import (
+from sbs_bes.extract.extract_from_staad_syntax import (
     extract_beam_groups,
     extract_beam_dimensions,
 )

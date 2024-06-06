@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "sbs-besi"
+name = "sbs-bes"
 version = "0.1.0"
 description = ""
 authors = ["regutierrez <11924623+regutierrez@users.noreply.github.com>"]

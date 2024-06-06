@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 # import numpy.testing as npt
-from sbs_besi.extract.extract_beam_forces import (
+from sbs_bes.extract.extract_beam_forces import (
     clean_beam_and_lc_columns,
 )
 

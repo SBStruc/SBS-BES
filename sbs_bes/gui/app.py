@@ -1,7 +1,7 @@
 import tkinter as tk
 import sys
 from tkinter import filedialog
-from sbs_besi.build_beam_tables import main
+from sbs_bes.build_beam_tables import main
 
 
 def runBESI():

@@ -2,12 +2,12 @@ import os
 import shutil
 import xlwings as xw
 import pandas as pd
-from sbs_besi.extract.extract_from_staad_syntax import (
+from sbs_bes.extract.extract_from_staad_syntax import (
     extract_beam_groups,
     extract_beam_dimensions,
 )
-from sbs_besi.extract.extract_beam_forces import extract_beam_forces
-from sbs_besi.compute.build_MuVuTu_table import build_MuVuTu_table
+from sbs_bes.extract.extract_beam_forces import extract_beam_forces
+from sbs_bes.compute.build_MuVuTu_table import build_MuVuTu_table
 
 
 def main(

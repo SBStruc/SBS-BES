@@ -1,5 +1,5 @@
 import math
-from sbs_besi.beam_data_model import DesignCriteria, Data
+from sbs_bes.beam_data_model import DesignCriteria, Data
 
 f_prime_c: Data = Data(value=35, unit="MPa")
 f_y_main: Data = Data(value=415, unit="MPa")
