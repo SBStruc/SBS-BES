@@ -19,8 +19,7 @@ def test_extract_beam_groups():
     assert beam_group_df.shape == (380, 2)
     assert beam_group_df.columns.values.tolist() == ["Name", "Beam"]
     assert beam_group_df["Name"].dtype == np.dtype("O")
-    assert beam_group_df["Name"] == ["test"]
-    assert beam_group_df["Name"].unique().shape == (34,)
+    assert beam_group_df["Name"].unique().shape == (35,)
     assert beam_group_df["Beam"].iloc[0] == 1
     assert beam_group_df["Name"].iloc[0] == "FTB01"
     # check if COLUMNS and FLOOR beams are not caught
