@@ -28,8 +28,5 @@ def test_clean_beam_and_lc_columns():
     assert df3.equals(expected3)
 
 
-# TO DO: how to test clean_line_headers?
-
-
 if __name__ == "__main__":
     pytest.main()
