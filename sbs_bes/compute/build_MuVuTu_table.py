@@ -3,6 +3,15 @@ from functools import reduce
 
 
 def build_MuVuTu_table(df: pd.DataFrame) -> pd.DataFrame:
+    assert df.columns.values.tolist() == [
+        "Name",
+        "Axial Force kN",
+        "Shear-Y kN",
+        "Shear-Z kN",
+        "Torsion kNm",
+        "Moment-Y kNm",
+        "Moment-Z kNm",
+    ]
     # df is the merged beam forces and group table
     df_to_merge: list[pd.DataFrame] = [
         compute_Muneg(df),
