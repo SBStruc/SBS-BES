@@ -14,6 +14,9 @@ def extract_beam_groups(doc_lines: list[str]) -> pd.DataFrame:
             "Wrong file. No START GROUP DEFINITION or END GROUP DEFINITION"
         )
 
+    if len(bg_lines) == 0:
+        raise Exception("No data parsed. Please check input staad syntax file.")
+
     return load_groups_to_df(bg_lines)
 
 
