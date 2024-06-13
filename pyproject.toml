@@ -13,6 +13,7 @@ pytest = "^7.4.2"
 openpyxl = "^3.1.2"
 pydantic = "^2.4.2"
 xlwings = "^0.31.1"
+cx-freeze = "^7.1.0.post0"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -22,3 +23,12 @@ jupyter = "^1.0.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.cxfreeze]
+executables = [
+    {script = "sbs_bes/gui/app.py", base = "gui"}
+]
+
+[tool.cxfreeze.build_exe]
+excludes = []
+zip_include_packages = []
