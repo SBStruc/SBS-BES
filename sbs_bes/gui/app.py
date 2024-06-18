@@ -3,7 +3,7 @@ import tkinter as tk
 import sys
 from tkinter import filedialog
 from sbs_bes.build_beam_tables import main
-from sbs_bes.extract_new_beam_dims import extract_beam_dims
+from sbs_bes.extract_new_beam_dims import make_new_staad_file
 
 
 def validate_input(*args):
@@ -22,6 +22,9 @@ def runBESI():
     ):
         raise Exception("Some selected directories/files do not exist. Try again...")
 
+    if not str.isalpha(output_file_var.get()):
+        raise Exception("Output file name can only contain letters. Try again...")
+
     main(
         template_file_var.get(),
         beam_groups_var.get(),
@@ -38,7 +41,10 @@ def make_new_staad_syntax():
     ):
         raise Exception("Some selected directories/files do not exist. Try again...")
 
-    extract_beam_dims(
+    if not str.isalpha(output_file_var.get()):
+        raise Exception("Output file name can only contain letters. Try again...")
+
+    make_new_staad_file(
         beam_groups_var.get(),
         output_file_var.get(),
         output_folder_var.get(),
