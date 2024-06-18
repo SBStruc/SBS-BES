@@ -76,10 +76,8 @@ def build_master_table(
     master_table: pd.DataFrame = pd.merge(
         MuVuTu_df, beam_dimensions_df, on="Name", sort=False
     )
-    # we don't want any zeroes in our beam names
-    master_table["Name"] = master_table["Name"].replace(
-        to_replace=r"0(\d+)$", value=r"\1", regex=True
-    )
+    if master_table["Name"].str.contains(r"0\d"):
+        raise Exception("Beam names cannot contain 0 followed by a number. Exiting...")
 
     return master_table[
         [
