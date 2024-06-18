@@ -1,3 +1,4 @@
+import re
 from pathlib import Path
 import tkinter as tk
 import sys
@@ -22,8 +23,8 @@ def runBESI():
     ):
         raise Exception("Some selected directories/files do not exist. Try again...")
 
-    if not str.isalpha(output_file_var.get()):
-        raise Exception("Output file name can only contain letters. Try again...")
+    if re.match(r"[^A-Za-z0-9\-\_]+", output_file_var.get()):
+        raise Exception("Invalid file name. Try again...")
 
     main(
         template_file_var.get(),
@@ -41,8 +42,8 @@ def make_new_staad_syntax():
     ):
         raise Exception("Some selected directories/files do not exist. Try again...")
 
-    if not str.isalpha(output_file_var.get()):
-        raise Exception("Output file name can only contain letters. Try again...")
+    if re.match(r"[^A-Za-z0-9\-\_]+", output_file_var.get()):
+        raise Exception("Invalid file name. Try again...")
 
     make_new_staad_file(
         beam_groups_var.get(),
