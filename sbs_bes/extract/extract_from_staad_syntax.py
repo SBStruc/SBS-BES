@@ -5,9 +5,9 @@ from typing import Iterator
 
 def extract_beam_groups(doc_lines: list[str]) -> pd.DataFrame:
     try:
-        bg_start_index: int = doc_lines.index("MEMBER\n")
-        bg_end_index: int = doc_lines.index("END GROUP DEFINITION\n")
-        bg_lines: list[str] = clean_bg_lines(doc_lines[bg_start_index:bg_end_index])
+        start_idx: int = doc_lines.index("MEMBER\n")
+        end_idx: int = doc_lines.index("END GROUP DEFINITION\n")
+        bg_lines: list[str] = clean_bg_lines(doc_lines[start_idx:end_idx])
 
     except ValueError:
         raise ValueError(
@@ -22,17 +22,15 @@ def extract_beam_groups(doc_lines: list[str]) -> pd.DataFrame:
 
 def extract_beam_dimensions(doc_lines: list[str]) -> pd.DataFrame:
     try:
-        bd_start_index: int = doc_lines.index("MEMBER PROPERTY AMERICAN\n")
-        bd_end_index: int = -1
-        for idx, bd_line in enumerate(
-            doc_lines[bd_start_index + 1 :], start=bd_start_index + 1  # noqa
-        ):
+        start_idx: int = doc_lines.index("MEMBER PROPERTY AMERICAN\n") + 1
+        end_idx: int = -1
+        for idx, bd_line in enumerate(doc_lines[start_idx:], start=start_idx):
             if re.match(r"^[A-Z\s]+\n$", bd_line):
-                bd_end_index = idx
+                end_idx = idx
                 break
-        if bd_end_index == -1:
+        if end_idx == -1:
             raise Exception
-        bd_lines: list[str] = clean_bd_lines(doc_lines[bd_start_index:bd_end_index])
+        bd_lines: list[str] = clean_bd_lines(doc_lines[start_idx:end_idx])
     except Exception as e:
         raise ValueError(f"{e}\nWrong file. No MEMBER PROPERTY AMERICAN or CONSTANTS")
 
